@@ -1,9 +1,9 @@
-from typing import Callable, List, TypeVar
+from typing import Callable, List, TypeVar, NewType
 
 T = TypeVar('T')
-FunctionalSet = Callable  # function of the form (x: T) -> bool
-Filter = Callable  # function of the form (x: T) -> bool
-Mapper = Callable  # function of the form (x: T) -> T
+FunctionalSet = NewType('FunctionalSet', Callable)  # function of the form (x: T) -> bool
+Filter = NewType('Filter', Callable)  # function of the form (x: T) -> bool
+Mapper = NewType('Mapper', Callable)  # function of the form (x: T) -> T
 
 
 def singleton_set(elem: T) -> FunctionalSet:
